@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import path from 'path';
+import path, { resolve } from 'path';
 
 // Get the current working directory (where Vite is executed)
 const currentDirectory = process.cwd();
@@ -9,4 +9,14 @@ const projectName = path.basename(currentDirectory);
 
 export default defineConfig({
   base: `/${projectName}/`,
+  build: {
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        main: resolve(__dirname, 'src/pages/main/index.html'),
+        materials: resolve(__dirname, 'src/pages/materials/index.html'),
+        sgraph: resolve(__dirname, 'src/pages/scene-graph/index.html'),
+      },
+    },
+  },
 });
