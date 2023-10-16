@@ -35,25 +35,36 @@ function main() {
 }
 
 function earthSystem() {
-  const sizes = {
-    width: 600,
-    height: 600,
-  };
   const canvas = document.querySelector('#c');
-  console.log(canvas);
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     canvas,
   });
 
-  // Scene
+  // CAMERA
+  const fov = 40;
+  const aspect = 2; // the canvas default
+  const near = 0.1;
+  const far = 1000;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(0, 50, 0);
+  camera.up.set(0, 0, 1);
+  camera.lookAt(0, 0, 0);
+
+  // SCENE
   const scene = new THREE.Scene();
 
-  // Camera
-  const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
-  camera.position.z = 3;
-  scene.add(camera);
+  // LIGHT
+  {
+    const color = 0xffffff;
+    const intensity = 500;
+    const light = new THREE.PointLight(color, intensity);
+    scene.add(light);
+  }
 
+  // OBJECTS
+
+  // an array of objects who's rotation to update
   const objects = [];
 
   const radius = 1;
@@ -63,12 +74,41 @@ function earthSystem() {
 
   const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xffff00 });
   const sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial);
+  sunMesh.scale.set(5, 5, 5);
+  scene.add(sunMesh);
+  objects.push(sunMesh);
 
-  sunMesh.scale.set(5, 5, 5); // make the sun large
+  function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
 
-  // Setup
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.render(scene, camera);
+    return needResize;
+  }
+
+  function render(time) {
+    time *= 0.001;
+
+    if (resizeRendererToDisplaySize(renderer)) {
+      const canvas = renderer.domElement;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+    }
+
+    objects.forEach((obj) => {
+      obj.rotation.y = time;
+    });
+
+    renderer.render(scene, camera);
+
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
 }
 
-main();
+earthSystem();
