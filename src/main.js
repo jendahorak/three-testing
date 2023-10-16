@@ -72,7 +72,7 @@ function earthSystem() {
   const heightSegments = 6;
   const sphereGeometry = new THREE.SphereGeometry(radius, widthSegments, heightSegments);
 
-  const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xffff00 });
+  const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xff0000 });
   const sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial);
   sunMesh.scale.set(5, 5, 5);
   scene.add(sunMesh);
