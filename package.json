@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check-repo-name": "node src/utils/check-repo-name.js",
-    "deploy": "npm run check-repo-name && npm run build && git add dist -f && git commit -m deployed-from-script && git subtree push --prefix dist origin gh-pages"
+    "deploy": "npm run check-repo-name && npm run build && git add dist -f && git commit -m deployed-from-script && git subtree push --prefix dist origin gh-pages node src/utils/discardLastCommit.js"
   },
   "devDependencies": {
     "vite": "^4.4.5"
