@@ -1,5 +1,5 @@
 {
-  "name": "vite-three-boilerplate",
+  "name": "testing-three",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && git add . && git add dist -f && git commit -m 'deployed-from-script' && git subtree push --prefix dist origin gh-pages && git push origin main"
+    "check-repo-name": "node check-repo-name.js",
+    "deploy": "npm run check-repo-name && npm run build && git add . && git add dist -f && git commit -m 'deployed-from-script' && git subtree push --prefix dist origin gh-pages && git push origin main"
   },
   "devDependencies": {
     "vite": "^4.4.5"
