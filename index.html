@@ -4,13 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="mobile-web-app-capable" content="yes" />
-    
     <title>Three Vite Boilerplate</title>
-    <script type="module" crossorigin src="/three-testing/assets/index-b1868f54.js"></script>
-    <link rel="stylesheet" href="/three-testing/assets/index-b6163fbf.css">
   </head>
+
+  <style>
+    body {
+      background-color: #333; /* Dark background color */
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace, sans-serif;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      height: 100vh;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav {
+      width: 200px;
+    }
+
+    li {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00ffea; /* White text color */
+      font-size: 18px;
+      display: block;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
   <body>
-    <canvas id="c"></canvas>
+    <nav>
+      <ul>
+        <li><a href="./src/pages/main.html">main</a></li>
+        <li><a href="./src/pages/sceneGraph.html">scene graph</a></li>
+        <li><a href="./src/pages/materials.html">materials</a></li>
+      </ul>
+    </nav>
   </body>
-  
 </html>
