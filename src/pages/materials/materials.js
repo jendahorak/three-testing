@@ -30,7 +30,8 @@ function main() {
   {
     const planeSize = 40;
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('../../../public/assets/checker.png');
+    // Then you can place the asset in a special public directory under your project root. Assets in this directory will be served at root path / during dev, and copied to the root of the dist directory as-is.
+    const texture = loader.load('/checker.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
