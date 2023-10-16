@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+import { exec } from 'child_process';
 
 function getCurrentDirectory() {
   return new Promise((resolve, reject) => {
@@ -34,7 +34,6 @@ async function checkRepoName() {
 
     if (projectName === remoteRepoName) {
       console.log('Local and remote repository names match. Proceeding with deployment.');
-      // Add your deployment script here
     } else {
       console.error('Local and remote repository names do not match. Deployment canceled.');
     }
