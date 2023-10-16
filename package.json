@@ -1,0 +1,18 @@
+{
+  "name": "vite-aframe-boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && git add . && git add dist -f && git commit -m 'deployed-from-script' && git subtree push --prefix dist origin gh-pages && git push origin main"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "three": "^0.157.0"
+  }
+}
