@@ -23,7 +23,7 @@ function main() {
   // LIGHT
   {
     const color = 0xffffff;
-    const intensity = 300;
+    const intensity = 600;
     const light = new THREE.PointLight(color, intensity);
     scene.add(light);
   }
