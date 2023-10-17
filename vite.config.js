@@ -8,8 +8,11 @@ const currentDirectory = process.cwd();
 const projectName = path.basename(currentDirectory);
 
 export default defineConfig({
-  base: `/${projectName}/`,
+  base: `./`,
   build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+    sourcemap: true,
     rollupOptions: {
       input: {
         index: resolve(__dirname, 'index.html'),
