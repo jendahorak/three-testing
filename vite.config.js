@@ -17,6 +17,7 @@ export default defineConfig({
         main: resolve(__dirname, 'src/pages/main/index.html'),
         materials: resolve(__dirname, 'src/pages/materials/index.html'),
         sgraph: resolve(__dirname, 'src/pages/scene-graph/index.html'),
+        cameras: resolve(__dirname, 'src/pages/cameras/index.html'),
       },
     },
   },
