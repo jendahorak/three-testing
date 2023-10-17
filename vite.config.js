@@ -10,8 +10,6 @@ const projectName = path.basename(currentDirectory);
 export default defineConfig({
   base: `/${projectName}/`,
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
     sourcemap: true,
     rollupOptions: {
       input: {
