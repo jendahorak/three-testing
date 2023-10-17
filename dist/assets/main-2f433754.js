@@ -1,0 +1,2 @@
+import{W as i,S as d,P as h,B as m,M as w,a as l}from"./three.module-78a473a7.js";function g(){const t=document.querySelector("#c");console.log(t);const a=new i({antialias:!0,canvas:t}),e={width:600,height:600},n=new d,s=new h(75,e.width/e.height);s.position.z=3,n.add(s);const o=new m(1,1,1),c=new w({color:"red"}),r=new l(o,c);n.add(r),a.setSize(e.width,e.height),a.render(n,s)}g();
+//# sourceMappingURL=main-2f433754.js.map
