@@ -101,21 +101,21 @@ function main() {
 
   // // TODO - abstract the functionality of adding stuff to the gui to the function
   // Hemisphere light
-  // {
-  //   const skyColor = 0xb1e1ff; // light blue
-  //   const groundColor = 0xb97a20; // brownish orange
-  //   const intensity = 1;
-  //   const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
-  //   scene.add(light);
+  {
+    const skyColor = 0xb1e1ff; // light blue
+    const groundColor = 0xb97a20; // brownish orange
+    const intensity = 1;
+    const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+    scene.add(light);
 
-  //   lightingFolder.add(light, 'intensity', 0, 1).name('Light Intesity');
-  //   lightingFolder.addColor({ skyColor: light.color.getHex() }, 'skyColor').onChange((val) => {
-  //     light.color.set(val);
-  //   });
-  //   lightingFolder.addColor({ groundColor: light.groundColor.getHex() }, 'groundColor').onChange((val) => {
-  //     light.groundColor.set(val);
-  //   });
-  // }
+    lightingFolder.add(light, 'intensity', 0, 1).name('Light Intesity');
+    lightingFolder.addColor({ skyColor: light.color.getHex() }, 'skyColor').onChange((val) => {
+      light.color.set(val);
+    });
+    lightingFolder.addColor({ groundColor: light.groundColor.getHex() }, 'groundColor').onChange((val) => {
+      light.groundColor.set(val);
+    });
+  }
 
   // // Directional Light
   // {
