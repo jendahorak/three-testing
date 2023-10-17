@@ -8,7 +8,7 @@ const currentDirectory = process.cwd();
 const projectName = path.basename(currentDirectory);
 
 export default defineConfig({
-  base: `./`,
+  base: `/${projectName}/`,
   build: {
     outDir: '../dist',
     emptyOutDir: true,
