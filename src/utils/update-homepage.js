@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { execSync } from 'child_process';
 
+console.log('Testing if homepage: property is correctly set in package.json');
 // Get the remote repository URL
 const remoteUrl = execSync('git config --get remote.origin.url').toString().trim();
 
@@ -21,3 +22,4 @@ if (packageJson.homepage != correctedHomepage) {
 } else {
   console.log('Homepage is correct.');
 }
+// TODO - Zkontrolvat ze projectName je stejnej jako /homepage/ na gitu
