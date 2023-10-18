@@ -7,10 +7,30 @@
     <link rel="stylesheet" href="../../main.css" />
     <title>Shadows</title>
   </head>
-  <style></style>
+  <style>
+    .Notes {
+      width: 80vw;
+      display: block;
+      text-align: justify;
+    }
+
+    p {
+      color: #e0e0e0;
+    }
+
+    .h {
+      font-weight: bolder;
+      color: #00ffea;
+    }
+  </style>
   <body>
-    <p>Three canvas:</p>
     <canvas id="c"> </canvas>
+    <div class="Notes">
+      <p>
+        There are three lights that can cast shadows <span class="h">Directional Light</span>, <span class="h">Point Light</span> and
+        <span class="h">Spot Light</span>.
+      </p>
+    </div>
   </body>
   <script type="module" src="./shadows.js"></script>
 </html>

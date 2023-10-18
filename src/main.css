@@ -6,10 +6,10 @@ body {
   font-family: 'Courier New', Courier, monospace, sans-serif;
   justify-content: center;
   align-content: center;
-  height: 100vh;
   color: #00ffea;
 }
 #c {
+  margin-top: 40px;
   width: 80vw;
   height: 80vh;
   display: block;
