@@ -19,6 +19,7 @@ export default defineConfig({
         sgraph: resolve(__dirname, 'src/pages/scene-graph/index.html'),
         cameras: resolve(__dirname, 'src/pages/cameras/index.html'),
         shadows: resolve(__dirname, 'src/pages/shadows/index.html'),
+        fog: resolve(__dirname, 'src/pages/fog/index.js'),
       },
     },
   },
