@@ -48,6 +48,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+import ColorGUIHelper from '../../utils/ColorGUIHelper';
+import FogGUIHelper from '../../utils/FogGUIHelper';
 
 function main() {
   const canvas = document.querySelector('#c');
@@ -56,7 +58,7 @@ function main() {
   const fov = 75;
   const aspect = 2; // the canvas default
   const near = 0.1;
-  const far = 5;
+  const far = 50;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.z = 2;
 
@@ -65,7 +67,22 @@ function main() {
   controls.update();
   controls.enableDamping = true;
 
+  const gui = new GUI();
+
   const scene = new THREE.Scene();
+  {
+    const color = 0xff0000; // white
+    const near = 0.2;
+    const far = 10;
+    scene.fog = new THREE.Fog(color, near, far);
+    scene.background = new THREE.Color(color);
+
+    const fogGUIHelper = new FogGUIHelper(scene.fog, scene.background);
+    gui.add(fogGUIHelper, 'near', near, far).listen();
+    gui.add(fogGUIHelper, 'far', near, far).listen();
+
+    gui.addColor(fogGUIHelper, 'color');
+  }
 
   {
     const color = 0xffffff;
@@ -88,12 +105,18 @@ function main() {
 
     cube.position.x = x;
 
+    const folder = gui.addFolder(`Cube${x}`);
+    folder.addColor(new ColorGUIHelper(material, 'color'), 'value').name('color').onChange(requestRenderIfNotRequested);
+    folder.add(cube.scale, 'x', 0.1, 1.5).name('scale x').onChange(requestRenderIfNotRequested);
+    folder.open();
+
     return cube;
   }
 
   makeInstance(geometry, 0x44aa88, 0);
   makeInstance(geometry, 0x8844aa, -2);
   makeInstance(geometry, 0xaa8844, 2);
+  makeInstance(geometry, 0xaa8844, 4);
 
   function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;

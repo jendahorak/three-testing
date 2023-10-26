@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GUI } from 'dat.gui';
 import checkerImg from '/checker.png';
 import shadowImg from '/roundshadow.png';
+import GUI from 'lil-gui';
 
 const canvas = document.querySelector('#c');
 const renderer = new THREE.WebGLRenderer({
